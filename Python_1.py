@@ -96,6 +96,12 @@ numeros = [234,2344.234,768,4.67]
 #range(), sirve para establecer un rango segun el valor que le pongas
 #for i in range(6):
     #print(i)
+
+#Test with range() function
+#x = range(9,23)
+#for elem in x:
+    #print (elem)
+
 #input(), sirve para guardar valor que ponga el usaurio
 #name = input("Enter Employee Name: ")
 #print(name)

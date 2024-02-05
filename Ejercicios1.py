@@ -248,3 +248,34 @@ def exercise6_2():
     print(b)
 
 #exercise6_2()
+    
+## Exercise 7   Create a program that asks the user for a number and then prints out a list of all the divisors of that number.
+
+def exercise7():
+    num = int(input("Escribe un número: "))
+
+    i = 1
+    divisores = []
+    while i <= num:
+        resultado = num%i
+        if (resultado==0):
+            divisores.append(i)
+        i += 1
+    print(divisores)
+
+"""
+Solution in website
+num = int(input("Please choose a number to divide: "))
+
+listRange = list(range(1,num+1))
+
+divisorList = []
+
+for number in listRange:
+    if num % number == 0:
+        divisorList.append(number)
+
+print(divisorList)
+"""
+
+#exercise7()
