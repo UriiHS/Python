@@ -1,8 +1,11 @@
-## Exercise 1: Calculate the multiplication and sum of two numbers
-#Given two integer numbers, return their product only if the product is equal to or lower than 1000. Otherwise, return their sum.
+""" Exercise 1: Calculate the multiplication and sum of two numbers
+Given two integer numbers, return their product only if the product is equal to or lower than 1000. Otherwise, return their sum."""
 
+#First i create a function that needs two variables to work
 def exercise1 (num1, num2):
+    #We calculate the value and we save that number into a new variable
     result = num1*num2
+    #Quick condition to see if the numbers is higher (we show the sum) or lower (we show the product)
     if( result <= 1000):
         return result
     else:
@@ -14,20 +17,26 @@ final1 = exercise1(20,30)
 final2 = exercise1(40,30)
 #print("The result is ",final2)
 
-##Exercise 2: Print the sum of the current number and the previous number
-#Write a program to iterate the first 10 numbers, and in each iteration, print the sum of the current and previous number.
-#Mi solución (He echo un poco extra para que sea una función y puedas poner el rango que quieras.)
+"""Exercise 2: Print the sum of the current number and the previous number
+Write a program to iterate the first 10 numbers, and in each iteration, print the sum of the current and previous number."""
+
+# The first one is my solution
 def exercise2 (rango):
+    # We declare a variable, that will help us in the loop
     i = 0
+    #We create a loop that will loop through all the numbers in the range 
     while i <= rango:
+        #Variable that will define the previous number
         previus_num = i-1
+        #Quick condition, to prevent going into the negatives
         if (previus_num < 0):
             previus_num = 0
         print("Current Number ",i," Previous Number ",previus_num," Sum: ",i+previus_num )
         i += 1
-# print(exercise2(10))
-#Solución de la página
 
+#exercise2(10)
+
+#Website solution
 def exercise2_2 (rango):
     previous_num = 0
     for i in range(1, rango):                  #Utiliza la funcion range()
@@ -35,33 +44,40 @@ def exercise2_2 (rango):
         print("Current Number", i, "Previous Number ", previous_num, " Sum: ", x_sum)
         previous_num = i
 
-#print(exercise2_2(11))
+#exercise2_2(11)
 
-## Exercise 3: Print characters from a string that are present at an even index number
-# Write a program to accept a string from the user and display characters that are present at an even index number.
+"""Exercise 3: Print characters from a string that are present at an even index number
+Write a program to accept a string from the user and display characters that are present at an even index number."""
 
-#texto = input("Escribe cualquier palabra: ")
+def exercise3 ():
+    #We ask for any word using inpu()
+    texto = input("Write any word: ")
+    #We calculate the length of the word
+    long_texto = len(texto)
+    #Loop that goes through the word, with a increment of 2 in the range()
+    for i in range(0, long_texto, 2):
+        print("Index[",i,"]", texto[i])
 
-#long_texto = len(texto)
-#def exercise3 (texto):
-#    for i in range(0, long_texto, 2):
-#        print("Index[",i,"]", texto[i])
+#exercise3()
 
+"""Exercise 4: Create a program that asks the user to enter their name and their age. 
+Print out a message addressed to them that tells them the year that they will turn 100 years old"""
 
-## Exercise 4: Create a program that asks the user to enter their name and their age. 
-# Print out a message addressed to them that tells them the year that they will turn 100 years old
-
+#We import the datetime module
 import datetime
 
 def exercise4 ():
-    nombre = input("Como te llamas: ")
-    edad = int(input("Escribe tu edad: "))
+    #We ask for the name and the age
+    nombre = input("What is your name? ")
+    edad = int(input("How old are you? "))
+    #Using the datetime module, we find the actual year
     año_actual = datetime.datetime.now().year
+    #We show the name, with the operation that will tell the year that they will turn 100 years old
     print(nombre, "cumplirás los 100 años el año: ", año_actual + 100 - edad)
 
-#exercise4()
+#exercise4()d
 
-#Vamos a hacer el ejercicio 4, pero esta vez pedirás la fecha de nacimiento y lo calculará
+"""Not finish Extra 1     Make it more complex, and ask for the birth date and show exactly how many days/months/years untill turning 100"""
     
 def exercise4_2():
     nombre = input("Como te llamas: ")
@@ -145,70 +161,65 @@ def exercise4_2():
                 años_restantes = año_actual - año_cliente + 100
                 print("Te quedan ", dia_restante , "Dias ",meses_restantes," Meses",años_restantes," Años, para cumplir 100 años")
                 
-
 # exercise4_2()
                 
-##Exercise 5 Ask the user for a number. Depending on whether the number is even or odd, print out an appropriate message to the user.
-#Extra 2    Ask the user for two numbers: one number to check (call it num) and one number to divide by (check). 
-            #If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
+"""Exercise 5 Ask the user for a number. Depending on whether the number is even or odd, print out an appropriate message to the user."""
                 
 def exercise5():
-    numero_cliente = input("Escribe un número: ")
-    numero_cliente = int(numero_cliente)
+    #We ask the user for a number, and we use int() to make sure is an integer
+    numero_cliente = int(input("Write a number: "))
+    #We calculate if it's a odd or even number
     par_or_not = numero_cliente % 2
-
+    #Conditional for showing the results
     if(par_or_not >= 1):
-        print("El número que has escrito es impar")
+        print("The number is odd")
     else:
-        print("El número que has escrito es par")
+        print("The number is even")
 
 #exercise5()
 
-#Extra 1    If the number is a multiple of 4, print out a different message.
+"""Extra 1  If the number is a multiple of 4, print out a different message."""
 
 def exercise5_1():
-    numero_cliente = input("Escribe un número: ")
-    numero_cliente = int(numero_cliente)
+    #Same as before, but with an extra operation to found the multiples of 4
+    numero_cliente = int(input("Write a number: "))
     par_or_not = numero_cliente % 2
     multiple_4 = numero_cliente % 4
-
-  
+    #Same as before, but with the new condition 
     if(multiple_4>=1):
         if(par_or_not >= 1):
-            print("El número que has escrito es impar")
+            print("The number is odd")
         else:
-            print("El número que has escrito es par")
+            print("The number is even")
     else:
-        print("El número que has escrito es par y además es multiple de 4")
+        print("The number is even and a multiple of 4")
    
-
 #exercise5_1()
 
-#Extra 2    Ask the user for two numbers: one number to check (call it num) and one number to divide by (check). 
-            #If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
+"""Extra 2  Ask the user for two numbers: one number to check (call it num) and one number to divide by (check). 
+            If check divides evenly into num, tell that to the user. If not, print a different appropriate message."""
 
 def exercise5_2():
-    numero_cliente = input("Escribe un número: ")
-    numero_check = input("Escribe otro número: ")
-    numero_cliente = int(numero_cliente)
-    numero_check = int(numero_check)
-
+    numero_cliente = int(input("Escribe un número: "))
+    numero_check = int(input("Escribe otro número: "))
+    #Quick maths to find the results
     resultado = numero_cliente % numero_check
     total = numero_cliente / numero_check
 
     if(resultado >= 1):
-        print("El número: ",numero_cliente," que has puesto, no es divisible por: ",numero_check)
+        print("The number: ",numero_cliente," it does not divide evenly: ",numero_check)
     else:
-        print("El número: ",numero_cliente," que has puesto, es divisible por: ",numero_check, " y da como resultado: ",total)
+        print("The number: ",numero_cliente," it does divide evenly: ",numero_check, " and the result is: ",total)
 
 #exercise5_2()
         
-## Exercise 6   Take a list and write a program that prints out all the elements of the list that are less than 5.
+"""Exercise 6   Take a list and write a program that prints out all the elements of the list that are less than 5."""
 
 def exercise6(num):
+    #We declare the variables with their values
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     i = 0
-
+    #Loop to find how many numbers are less than the number we asked the user
     while i < len(a):
         if(a[i]<num):
             print (a[i])
@@ -216,8 +227,10 @@ def exercise6(num):
 
 #exercise6(15)
 
-#Extra 1       Instead of printing the elements one by one, make a new list that has all the elements less than 5 from this list in it and print out this new list.
+"""Extra 1       Instead of printing the elements one by one, make a new list that has all the elements less than 5 from this list in it and print out this new list."""
+
 def exercise6_1(num):
+    #The same as before, but in this one we make a new list and has all the elements lower than the number from the user
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     i = 0
     b = []
@@ -231,9 +244,10 @@ def exercise6_1(num):
 
 #exercise6_1(15)
 
-#Extra 2       Ask the user for a number and return a list that contains only elements from the original list a that are smaller than that number given by the user.
+"""Extra 2       Ask the user for a number and return a list that contains only elements from the original list a that are smaller than that number given by the user."""
 
 def exercise6_2():
+    #This time, we asked the user for the number using input()
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     i = 0
     b = []
@@ -249,7 +263,7 @@ def exercise6_2():
 
 #exercise6_2()
     
-## Exercise 7   Create a program that asks the user for a number and then prints out a list of all the divisors of that number.
+"""Exercise 7   Create a program that asks the user for a number and then prints out a list of all the divisors of that number."""
 
 def exercise7():
     num = int(input("Escribe un número: "))
@@ -279,3 +293,77 @@ print(divisorList)
 """
 
 #exercise7()
+
+## Exercise 8   Take two lists and write a program that returns a list that contains only the elements that are common between the lists (without duplicates)
+def exercise8():
+    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    c = []
+
+    for num in a:
+        if num in b:
+            if num not in c:
+                c.append(num)
+    
+    print(c)
+
+# exercise8()
+
+## Extra 1  Randomly generate two lists to test this
+import random
+
+def exercise8_1():
+    #I Create 3 list needed for this exercise
+    a = []
+    b = []
+    c = []
+
+    #This here, creates a random value for the lenght of the list
+    long_a = random.randrange(1,101)    #Note: This one only includes the first number(1) and does not include the last number (101) <1-100>
+    long_b = random.randint(1,100)     #Note: This one includes both numbers (1) and (100) <1-100>
+
+    #I create two variables with a value of 0 that will help me in the loop
+    i = 0
+    e = 0
+    #Two loops for adding random numbers in the a and b lists, the amount of numbers is equal to the previous numbers i generated randomly
+    while i < long_a:
+        a.append(random.randrange(1,101))
+        i += 1
+    while e < long_b:
+        b.append(random.randint(1,100))
+        e += 1
+
+    #Quick loop that searches all values inside the lists and adds them into a new list (c)
+    for num in a:
+        if num in b:
+            if num not in c:
+                c.append(num)
+    
+    print(c)
+
+#exercise8_1()
+
+"""Exercise 9   Ask the user for a string and print out whether this string is a palindrome or not.
+                (A palindrome is a string that reads the same forwards and backwards.)"""
+
+def exercise9():
+    phrase = str(input("Write a phrase (Careful with the MAYUS): "))
+    phrase_len = len(phrase)          
+    i = 0
+    x = 0
+    
+    for i in range(0, phrase_len):
+          #This compares the first letter with the last in recursive order 1 - last ,  2 - last-1, 3 - last-2, etc...
+        if(phrase[i]==phrase[phrase_len-1-i]): 
+            #We use this variable to help us keeping track if the letters are the same           
+            x += 1   
+            #If they're the same, we show that the String is a plindrome                                      
+            if x == phrase_len:                             
+                print("This ", phrase, " is a palindrome")
+        else:
+            #If not, we show that is not, and we stop the loop
+            print("This ", phrase, " is not a palindrome")  
+            exit()
+        i += 1
+
+#exercise9()
