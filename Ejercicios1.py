@@ -367,3 +367,57 @@ def exercise9():
         i += 1
 
 #exercise9()
+        
+"""Exercise 10  Let’s say I give you a list saved in a variable: a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. 
+                Write one line of Python that takes this list a and makes a new list that has only the even elements of this list in it."""
+
+def exercise10():
+    a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    #Really close as you would write it in english: Save (even) in the list for each (even) in the other list (a) if the condition is meet.   
+    new_a = [even for even in a if even%2==0 ]
+    print(new_a)
+
+#exercise10()
+
+"""Exercise 11  Make a two-player Rock-Paper-Scissors game"""
+
+def exercise11():
+    #Function that will determine players picks and who won
+    def player_pick():
+        player_1 = input("Player 1 Your Move: (Rock/Paper/Scissors): ")
+        while (player_1 != "Rock") or (player_1 != "Paper") or (player_1 != "Scissors"):
+            if(player_1 == "Rock") or (player_1 == "Paper") or (player_1 == "Scissors"):
+                break
+            else:
+                player_1 = input("Wrong move Player 1 >:( Try again (Rock/Paper/Scissors): ")
+        player_2 = input("Player 2 Yout Move: (Rock/Paper/Scissors): ")
+        while (player_2 != "Rock") or (player_2 != "Paper") or (player_2 != "Scissors"):
+            if(player_2 == "Rock") or (player_2 == "Paper") or (player_2 == "Scissors"):
+                break
+            else:
+                player_2 = input("Wrong move PLayer 2 >:( Try again (Rock/Paper/Scissors): ")
+        
+        if(player_1=="Rock" and player_2=="Scissors") or (player_1=="Paper" and player_2=="Rock") or (player_1=="Scissors" and player_2=="Paper"):
+            print("Player 1 has chosen; ",player_1," and Player 2 has chosen: ",player_2," and the Winner is Player 1 Woooooo")
+        elif(player_2=="Rock" and player_1=="Scissors") or (player_2=="Paper" and player_1=="Rock") or (player_2=="Scissors" and player_1=="Paper"):
+             print("Player 1 has chosen; ",player_1," and Player 2 has chosen: ",player_2," and the Winner is Player 2 Woooooo")
+        else:
+            print("You both manage to draw, better luck next time!")
+    #Function to play again
+    def play_again():
+        play= input("Wanna play again ? (Yes/No)")
+        while play == "Yes":
+            player_pick()
+            play_again()
+        
+        if(play=="No"):
+            print("Respectable, have a nice day!")
+            exit()
+        else:
+            print("Broskiwi, Yes or No, it's not that hard: (Yes/No)")
+            play_again()
+
+    player_pick()
+    play_again()
+
+#exercise11()
