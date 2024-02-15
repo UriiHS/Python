@@ -449,4 +449,4 @@ def exercise12():
             print("Congratulations the number was: ", user_number," and you found it in ", tries, "tries")
             exercise12()
 
-exercise12()
+#exercise12()
