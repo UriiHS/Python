@@ -421,3 +421,32 @@ def exercise11():
     play_again()
 
 #exercise11()
+    
+"""Exercise 12  Generate a random number between 1 and 9 (including 1 and 9). 
+                Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.
+   Extra 1:     Keep the game going until the user types “exit”
+   Extra 2:     Keep track of how many guesses the user has taken, and when the game ends, print this out."""
+
+def exercise12():
+    print("Let's play a game, try to find which number is this -> X")
+    random_number = random.randint(1,9)            
+    user_number = input("Your guess: ")
+    tries = 1
+    if user_number == "exit":
+        exit
+    else:
+        user_number = int(user_number)
+        if random_number == user_number:
+            print("Congratulations the number was: ", user_number," and you found it in ", tries, "tries")
+            exercise12()
+        else:
+            while random_number != user_number:
+                if user_number < random_number:
+                    user_number = int(input("Wrong, Try a higher number: "))
+                else:
+                    user_number = int(input("Wrong, Try a lower number: "))
+                tries += 1
+            print("Congratulations the number was: ", user_number," and you found it in ", tries, "tries")
+            exercise12()
+
+exercise12()
